@@ -10,9 +10,8 @@ Simple NATS logger with security & TLS config
 ## Instructions
 
 * Install Nats
-* Go through the config.json file and change what you want.
-* Deploy using Docker or ```go build```
-
+* Go through the config.json file and change what you want. (point to your certificates if you have them)
+* Deploy using Docker, use the included file ./natser or ```go build``` first
 
 ## Credits
 * [SF Product Labs](https://sfproductlabs.com)
