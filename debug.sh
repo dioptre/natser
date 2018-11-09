@@ -1,2 +1,2 @@
 #!/bin/bash
-go build && ./tracker
+go build && ./natser

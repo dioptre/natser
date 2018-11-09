@@ -1,11 +1,11 @@
 ####################################################################################
-# Tracker
-# Build with: sudo docker build -t tracker .
+# Natser
+# Build with: sudo docker build -t natser .
 ####################################################################################
 
 FROM debian:stable-slim
-WORKDIR /root/tracker
-ADD . /root/tracker
+WORKDIR /root/natser
+ADD . /root/natser
 EXPOSE 443
 EXPOSE 80
 
@@ -47,15 +47,15 @@ RUN apt autoclean -y && apt autoremove -y
 RUN pip install awscli --upgrade
 
 # build app in production mode
-RUN /usr/lib/go-1.8/bin/go get github.com/dioptre/tracker
-RUN /usr/lib/go-1.8/bin/go install github.com/dioptre/tracker
+RUN /usr/lib/go-1.8/bin/go get github.com/dioptre/natser
+RUN /usr/lib/go-1.8/bin/go install github.com/dioptre/natser
 RUN /usr/lib/go-1.8/bin/go build
 
 ####################################################################################
 
 # copy files to other locations
 COPY supervisord.conf /etc/supervisor/supervisord.conf
-COPY tracker.supervisor.conf /etc/supervisor/conf.d/tracker.supervisor.conf
+COPY natser.supervisor.conf /etc/supervisor/conf.d/natser.supervisor.conf
 
 # make startup script executable
 RUN chmod +x dockercmd.sh
