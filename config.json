@@ -1,0 +1,34 @@
+{
+    "Debug": true,
+    "Service": "nats",
+    "Hosts": [
+        "tls://localhost:4222"
+    ],
+    "Secure": true,
+    "Critical": true,
+    "CACert": "natscacert.pem",
+    "Cert": "natscert.pem",
+    "Key": "natskey.pem",
+    "Format": "json",
+    "QueueGroup": "tracker",
+    "MessageLimit": 65536,
+    "ByteLimit": 67108864,
+    "ForwardTopic" : "",
+    "Filter": [
+        {
+            "Alias": "log",
+            "Type": "chan",
+            "Id": "tic.log.>"
+        },
+        {
+            "Alias": "count",
+            "Type": "chan",
+            "Id": "tic.count.>"
+        },
+        {
+            "Alias": "update",
+            "Type": "chan",
+            "Id": "tic.update.>"
+        }
+    ]
+}
